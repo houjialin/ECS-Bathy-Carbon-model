@@ -30,7 +30,7 @@ suppressPackageStartupMessages({
 # Cell carbon conversion: 24 fg C/cell -> ugC/cm3 = cells/g * 24 fg * 1.1 g/cm3 * 1e-9
 
 # Load biological observations
-biom <- read.table("./Estimated_cell_num.txt", sep = "\t", header = TRUE)
+biom <- read.table("./data/Estimated_cell_num.txt", sep = "\t", header = TRUE)
 observed.biomass.df <- as_tibble(biom) %>%
   mutate(
     time = Depth / 0.61,   
@@ -41,7 +41,7 @@ observed.biomass.df <- as_tibble(biom) %>%
   )
 
 # Load Total Organic Carbon (TOC) observations
-toc <- read.table("./TOC.txt", header = TRUE, sep = "\t")
+toc <- read.table("./data/TOC.txt", header = TRUE, sep = "\t")
 observed.POC.df <- as_tibble(toc) %>%
   mutate(
     time = Depth / 0.61,  
